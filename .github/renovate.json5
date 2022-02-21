@@ -1,0 +1,47 @@
+{
+  "enabled": true,
+  "timezone": "America/New_York",
+  "semanticCommits": "enabled",
+  "dependencyDashboard": true,
+  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
+  "commitBody": "Signed-off-by: Ryan McDaniel  <Ryan-McD@users.noreply.github.com>",
+  // do not notify on closed unmerged PRs
+  "suppressNotifications": ["prIgnoreNotification"],
+  // only rebase PRs when there's a conflict
+  "rebaseWhen": "conflicted",
+  "commitMessageTopic": "{{depName}}",
+  "commitMessageExtra": "to {{newVersion}}",
+  "commitMessageSuffix": "",
+  "docker-compose": {
+    "fileMatch": [
+      ".*-compose.*\\.ya?ml$"
+    ]
+  },
+  "packageRules": [
+    // setup datasources
+    // global docker datasource settings
+    {
+      "matchDatasources": ["docker"],
+      "enabled": true,
+      "commitMessageTopic": "container image {{depName}}",
+      "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
+      "matchUpdateTypes": ["major", "minor", "patch"],
+    },
+    // add labels according to package and update types
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["major"],
+      "labels": ["renovate/image", "dep/major"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["minor"],
+      "labels": ["renovate/image", "dep/minor"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["patch"],
+      "labels": ["renovate/image", "dep/patch"]
+    }
+  ]
+}
