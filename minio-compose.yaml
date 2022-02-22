@@ -13,7 +13,7 @@ services:
       MINIO_PROMETHEUS_URL: "https://prometheus.${DOMAIN_2}"
       MINIO_PROMETHEUS_JOB_ID: minio
       MINIO_PROMETHEUS_AUTH_TYPE: public
-      MINIO_SERVER_URL: https://s3.${DOMAIN_2}
+      # MINIO_SERVER_URL: https://s3.${DOMAIN_2}
       TZ: America/New_York
     command: server /data --console-address ":9001"
     ports:
