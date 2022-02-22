@@ -10,7 +10,7 @@ services:
     environment:
       MINIO_ROOT_USER: "${SECRET_MINIO_ROOT_USER}"
       MINIO_ROOT_PASSWORD: "${SECRET_MINIO_ROOT_PASSWORD}"
-      MINIO_PROMETHEUS_URL: "https://prometheus.${SECRET_DOMAIN}"
+      MINIO_PROMETHEUS_URL: "https://prometheus.${DOMAIN_2}"
       MINIO_PROMETHEUS_JOB_ID: minio
       MINIO_PROMETHEUS_AUTH_TYPE: public
       MINIO_SERVER_URL: https://s3.${SECRET_DOMAIN}
