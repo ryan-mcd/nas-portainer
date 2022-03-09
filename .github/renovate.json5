@@ -42,6 +42,15 @@
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["patch"],
       "labels": ["renovate/image", "dep/patch"]
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "versioning": "regex:^RELEASE\\.(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T.*Z(-(?<compatibility>.*))?$",
+      "matchPackageNames": [
+        "quay.io/minio/minio"
+      ]
     }
   ]
 }
