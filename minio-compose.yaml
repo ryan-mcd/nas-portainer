@@ -3,7 +3,7 @@ version: "3.8"
 
 services:
   minio:
-    image: quay.io/minio/minio:RELEASE.2022-08-22T23-53-06Z
+    image: quay.io/minio/minio:RELEASE.2022-09-07T22-25-02Z
     container_name: minio
     restart: unless-stopped
     network_mode: bridge
