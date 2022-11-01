@@ -21,7 +21,7 @@ services:
       - 9769:9001
     volumes:
       - /mnt/user/k8s-bak/minio/:/data
-      - /mnt/user/appdata/minio:/root/.minio
+      - /mnt/cache/appdata/minio:/root/.minio
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
       interval: 30s
