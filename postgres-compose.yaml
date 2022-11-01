@@ -41,7 +41,7 @@ services:
     ports:
       - 12080:12080
     volumes:
-      - /mnt/user/appdata/postgresql/pgadmin:/var/lib/pgadmin
+      - /mnt/cache/appdata/postgresql/pgadmin:/var/lib/pgadmin
     links:
       - postgresql:pgsql-server
     depends_on:
@@ -64,7 +64,7 @@ services:
       BACKUP_KEEP_MONTHS: 0
       HEALTHCHECK_PORT: 9166
     volumes:
-      - /mnt/user/appdata/postgresql/pgbackups:/backups
+      - /mnt/cache/appdata/postgresql/pgbackups:/backups
     links:
       - postgresql:pgsql-server
     depends_on:
